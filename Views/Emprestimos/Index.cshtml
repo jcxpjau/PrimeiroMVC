@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PrimeiroMVC.Models.Emprestimos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Livros)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataEmprestimo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDevolucao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuarios.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Livros.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEmprestimo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDevolucao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
